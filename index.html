@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Одностраничный сайт — Мой проект</title>
+  <meta name="description" content="Стильный одностраничный сайт — готовый шаблон" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent1:#6ee7b7; --accent2:#60a5fa; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --fw-sans: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:var(--fw-sans);background:linear-gradient(180deg,#061025 0%, #071229 60%);color:#e6eef8}
+    a{color:var(--accent2);text-decoration:none}
+    header{position:sticky;top:12px;z-index:40;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#06202a}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{padding:8px 12px;border-radius:10px;font-weight:600;opacity:.9}
+    .btn{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#06202a;padding:10px 14px;border-radius:12px;font-weight:700}
+
+    main{max-width:1100px;margin:28px auto;padding:28px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:28px;box-shadow:0 6px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    h1{font-size:clamp(28px,4.4vw,44px);line-height:1.05;margin:0 0 8px}
+    p.lead{color:#c9e6ff;margin:0 0 18px}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:18px}
+    .feature{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));border:1px solid rgba(255,255,255,0.02)}
+
+    .hero-visual{display:flex;flex-direction:column;gap:12px}
+    .mock{height:260px;border-radius:12px;background:linear-gradient(180deg,#06202a 0%, #093048 100%);display:flex;align-items:center;justify-content:center;color:var(--accent1);font-weight:700;padding:18px}
+
+    section{margin-top:28px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:110px;object-fit:cover;border-radius:10px}
+
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:inherit;font-size:15px}
+    .row{display:flex;gap:10px}
+    .row > *{flex:1}
+
+    footer{max-width:1100px;margin:36px auto;color:#9fb7d9;padding:18px;text-align:center}
+
+    /* small screens */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .hero-visual{order:-1}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* micro interactions */
+    .btn:active{transform:translateY(1px)}
+    .nav-toggle{display:none}
+    @media (max-width:720px){nav{display:none}.nav-toggle{display:block}}
+
+    /* subtle animated sparkles */
+    .sparkle{position:absolute;pointer-events:none;filter:blur(6px);opacity:.18}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="mark">MP</div>
+      <div>
+        <div style="font-weight:700">Мой проект</div>
+        <div style="font-size:12px;color:#9fb7d9">Лаконичный шаблон одностраничника</div>
+      </div>
+    </div>
+    <nav aria-label="Главное меню">
+      <a href="#about">О проекте</a>
+      <a href="#features">Функции</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#contact" class="btn">Связаться</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Показать меню" onclick="toggleNav(this)">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="card">
+        <h1>Красивый, лёгкий и быстрый одностраничный сайт</h1>
+        <p class="lead">Готовый шаблон — можно править прямо в одном HTML-файле: секции, цвета, тексты, форма обратной связи.</p>
+        <div class="features" id="features">
+          <div class="feature"><strong>Адаптивность</strong><div style="font-size:13px;color:#9fb7d9">Работает на мобильных и десктопах</div></div>
+          <div class="feature"><strong>Чистый код</strong><div style="font-size:13px;color:#9fb7d9">Одна страница, ноль зависимостей</div></div>
+          <div class="feature"><strong>Лёгкие анимации</strong><div style="font-size:13px;color:#9fb7d9">CSS и небольшая JS-логика</div></div>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <a class="btn" href="#contact">Написать нам</a>
+          <a href="#gallery" style="padding:10px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.03);font-weight:600">Посмотреть</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual">
+        <div class="mock card" role="img" aria-label="Превью сайта">
+          Превью интерфейса
+        </div>
+        <div class="card" style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:700">Подписка</div>
+            <div style="font-size:12px;color:#9fb7d9">+ еженедельные апдейты</div>
+          </div>
+          <form id="subscribe" onsubmit="event.preventDefault();subscribe()">
+            <div style="display:flex;gap:8px">
+              <input id="email" type="email" placeholder="Ваш email" required>
+              <button class="btn" type="submit">Подписаться</button>
+            </div>
+            <div id="sub-msg" style="font-size:13px;color:#a7d7ff;margin-top:8px"></div>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="card grid-2">
+        <div>
+          <h2 style="margin-top:0">О проекте</h2>
+          <p style="color:#c9e6ff">Этот шаблон создан, чтобы быстро запустить простую презентационную страницу. Меняйте тексты, изображения и цвета — всё в одном файле.</p>
+          <ul style="color:#9fb7d9">
+            <li>SEO- и доступность-готовность</li>
+            <li>Лёгкая кастомизация</li>
+            <li>Без внешних библиотек</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-bottom:8px">Технические заметки</h3>
+          <p style="color:#9fb7d9;font-size:14px;margin:0">HTML5, CSS3, небольшая vanilla JS-логика для интерактивности. Форма подписки — демонстрационная; можно подключить свой бэкенд или сервис.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2 style="margin-bottom:12px">Галерея</h2>
+      <div class="gallery card">
+        <img alt="Пример 1" src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img alt="Пример 2" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img alt="Пример 3" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img alt="Пример 4" src="https://images.unsplash.com/photo-1543128639-4cb7e6b7d3b8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img alt="Пример 5" src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img alt="Пример 6" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 style="margin-bottom:12px">Связаться</h2>
+      <div class="card">
+        <form id="contact-form" onsubmit="event.preventDefault();submitContact()">
+          <div class="row">
+            <input id="name" placeholder="Имя" required>
+            <input id="phone" placeholder="Телефон (необязательно)">
+          </div>
+          <input id="subject" placeholder="Тема" required>
+          <textarea id="message" rows="5" placeholder="Сообщение" required></textarea>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn" type="submit">Отправить</button>
+            <div id="cf-msg" style="color:#9fb7d9;font-size:13px"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Мой проект — Все права защищены
+  </footer>
+
+  <svg style="position:fixed;right:20px;bottom:20px;opacity:.06;width:160px;height:160px" class="sparkle" viewBox="0 0 100 100" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#60a5fa"/></linearGradient></defs>
+    <circle cx="50" cy="50" r="40" fill="url(#g)" />
+  </svg>
+
+  <script>
+    // helper: set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleNav(btn){
+      const nav = document.querySelector('nav');
+      if(nav.style.display === 'flex') {nav.style.display='none'; btn.textContent='☰';}
+      else {nav.style.display='flex'; btn.textContent='✕';}
+    }
+
+    // smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+
+    // demo subscribe function
+    function subscribe(){
+      const email = document.getElementById('email');
+      const msg = document.getElementById('sub-msg');
+      if(!email.checkValidity()){msg.textContent='Введите корректный email';return}
+      msg.textContent = 'Спасибо! Мы получили вашу подписку.';
+      email.value='';
+    }
+
+    // demo contact submission
+    function submitContact(){
+      const name = document.getElementById('name').value.trim();
+      const subj = document.getElementById('subject').value.trim();
+      const msgBox = document.getElementById('cf-msg');
+      if(!name || !subj){msgBox.textContent='Пожалуйста, заполните имя и тему.';return}
+      msgBox.textContent = 'Сообщение отправлено — спасибо! (демо)';
+      document.getElementById('contact-form').reset();
+    }
+  </script>
+</body>
+</html>
